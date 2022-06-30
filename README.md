@@ -39,7 +39,7 @@ Allí, se obtendrá un resultado similar al que se ve a continuación.
 
 <img src = https://i.ibb.co/tZKzxNn/vite.png/>
 
-Se puede ver que la web está funcionando en **http://localhost:3000**, por lo que accediendo a ella, ya se encontrará operativa.
+Se puede ver que la web está funcionando en **http://localhost:3000/**, por lo que accediendo a ella, ya se encontrará operativa.
 
 #### Aclaración
 En caso de no contar con Node.js instalado, se lo deberá descargar del sitio oficial (https://nodejs.org/es/).
