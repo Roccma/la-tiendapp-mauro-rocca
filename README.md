@@ -3,7 +3,7 @@
 </p>
 <h3 align="center">Para emprendimientos despegados</h3>
 <p align=center>
- ** Generado con:**
+ <b>Generado con:</b>
   <img src="https://vitejs.dev/logo.svg" height="50px"> Vite
 </p>
 
@@ -14,7 +14,7 @@ La TiendApp es una aplicación web de tipo e-commerce con el objetivo de ayudar 
 
 Es desarrollada con React y Firebase para el almacenamiento y manipulación de datos.
 
-#Instalación
+# Instalación
 
 La instalación y ejecución de la web en sencilla. En primer lugar, luego de clonar el repositorio, se debe posicionar sobre el directorio creado, para ello se debe ejecutar el siguiente comando:
 
@@ -51,7 +51,7 @@ node -v
 
 Si el resultado, es el número de la versión, la herramienta ya está instalada, de lo contario hay que descargarla.
 
-#Contacto
+# Contacto
 
 **Mauro Rocca**
 Desarrollador Frontend
