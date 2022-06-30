@@ -55,6 +55,6 @@ Si el resultado, es el número de la versión, la herramienta ya está instalada
 # Contacto
 
 **Mauro Rocca**
-Desarrollador Frontend
+<br>Desarrollador Frontend
 
 **LinkedIn:** https://www.linkedin.com/in/mauro-rocca-46836910a/
