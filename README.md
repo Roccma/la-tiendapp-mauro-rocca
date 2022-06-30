@@ -3,7 +3,8 @@
 </p>
 <h3 align="center">Para emprendimientos despegados</h3>
 <p align=center>
- <b>Generado con:</b><br>
+  <br>
+ <b>Generado con:</b><br><br>
   <img src="https://vitejs.dev/logo.svg" height="50px"><br>Vite
 </p>
 
