@@ -1,8 +1,9 @@
-import { AppBar, Button, Grid, IconButton, Toolbar, Typography } from '@mui/material'
-import { MenuRounded, HomeRounded, LocalPizzaRounded, CakeRounded, PaletteRounded, CheckroomRounded, CleaningServicesRounded, EventAvailableRounded } from '@mui/icons-material'
 import React from 'react'
+import { AppBar, Button, Grid, IconButton, Toolbar } from '@mui/material'
+import { MenuRounded, HomeRounded, LocalPizzaRounded, CakeRounded, PaletteRounded, CheckroomRounded, CleaningServicesRounded, EventAvailableRounded } from '@mui/icons-material'
 import { EcommercePage } from '../pages/EcommercePage'
 import { Box } from '@mui/system'
+import { CartWidget } from './CartWidget'
 
 export const Navbar = () => {
 
@@ -72,21 +73,22 @@ export const Navbar = () => {
                 <Box sx={{ flexGrow: 1, 
                             display: { xs: 'none', md: 'flex' },
                             ml: '200px'}}>
-                {menuItems.map((item) => (
-                  <Button
-                    key={item.name}
-                    sx={{ 
-                      color: 'white', 
-                      display: 'block',
-                      ml: 3
-                    }}
-                  >
-                    {item.icon}
-                    {item.name}
-                  </Button>
-                ))}
-          </Box>
-            </Grid>
+                      {menuItems.map((item) => (
+                        <Button
+                          key={item.name}
+                          sx={{ 
+                            color: 'white', 
+                            display: 'block',
+                            ml: 3
+                          }}
+                        >
+                          {item.icon}
+                          {item.name}
+                        </Button>
+                      ))}
+                </Box>
+          </Grid>
+          <CartWidget quantity = {1} />
         </Toolbar>
 
     </AppBar>

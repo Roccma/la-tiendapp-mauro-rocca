@@ -9,8 +9,7 @@ export const EcommerceLayout = ( { children } ) => {
         <Navbar />
         <Box
             component = "main"
-            sx = {{ flexGrow: 1,
-                    p: 3 }}>
+            sx = {{ flexGrow: 1}}>
             <Toolbar />
             { children }
         </Box>
