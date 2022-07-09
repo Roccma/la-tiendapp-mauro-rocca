@@ -1,12 +1,13 @@
 import React from 'react'
 import { Typography } from '@mui/material'
 import { MainTheme } from './theme/MainTheme'
+import { AppRouter } from './router/AppRouter'
 
 export const LaTiendaApp = () => {
   return (
     <>
       <MainTheme>
-        <Typography variant = 'h1'>La TiendApp!</Typography>
+        <AppRouter />
       </MainTheme>
     </>
   )

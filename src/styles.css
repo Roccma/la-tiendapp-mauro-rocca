@@ -1,0 +1,12 @@
+.img-logo{
+    position: fixed;
+    width: 200px;
+    left: -20px;
+    top: -10px;
+}
+
+.menu-icon{
+    top: 7px;
+    margin-right: 5px;
+    position: relative;
+}
