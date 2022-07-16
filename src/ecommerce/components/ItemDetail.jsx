@@ -6,7 +6,7 @@ import { ItemText } from './ItemText';
 export const ItemDetail = () => {
     const carouselSettings = {
         showThumbs : false,
-        showStatus : false,
+        showStatus : true,
         infiniteLoop : false,
         autoPlay : false
       };
