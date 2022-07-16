@@ -11,3 +11,28 @@
     position: relative;
     color: white;
 }
+
+.img-carousel{
+    height: 450px;
+    object-fit:cover;
+}
+
+.quantity-enabled{
+    border: 1px solid #FF9900;
+    border-radius: 5px;
+    display: inline-block;
+    color: black;
+}
+
+.quantity-disabled{
+    border: 1px solid rgba(0, 0, 0, 0.12);
+    border-radius: 5px;
+    display: inline-block;
+    color: rgba(0, 0, 0, 0.26);
+}
+
+.item-quantity{
+    margin: 0 18px;
+    font-size: 18px;
+    display: inline-block;
+}
