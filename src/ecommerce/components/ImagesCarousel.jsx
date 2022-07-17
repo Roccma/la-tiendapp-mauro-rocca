@@ -6,9 +6,9 @@ export const ImagesCarousel = ( { settings, images, applyStyles = false } ) => {
   return (
     <Carousel {...settings}>
       { images.map(
-        image => 
+        ( image, idx ) => 
           (<div>
-              <img src = { image } className = { applyStyles ? 'img-carousel' : '' } key = { image }/>
+              <img src = { image } className = { applyStyles ? 'img-carousel' : '' } key = { idx }/>
             </div>)
       ) }
         
