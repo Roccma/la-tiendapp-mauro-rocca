@@ -1,9 +1,19 @@
-import React from 'react'
-import { Grid, Typography } from '@mui/material'
+import React, { useState } from 'react'
+import { Alert, Grid, Snackbar, Typography } from '@mui/material'
 import { ItemCount } from './ItemCount';
 
 export const ItemText = ( { name, description, category, price, stock } ) => {
+
+  const [ quantity, setQuantity ] = useState( 1 );
+  const [ open, setOpen ] = useState( false );
+  
   const avaibalityText = stock > 1 ? 'disponibles' : 'disponible';
+  
+
+  const onAdd = ( quantitySelected ) => {
+    setQuantity( quantitySelected );
+    setOpen( !open );
+  }
 
   return (
     <>  
@@ -42,7 +52,14 @@ export const ItemText = ( { name, description, category, price, stock } ) => {
         </Grid>
         <ItemCount 
             stock = { stock }
-            initial = { 1 }/>            
+            initial = { quantity }
+            onAdd = { onAdd }/>       
+        <Snackbar open={open} autoHideDuration={5000} onClose= { () => { setOpen( !open ) } }>
+            <Alert onClose={ () => { setOpen( !open ) } } 
+                    severity="success" sx={{ width: '100%' }}>
+                Has agregado { quantity } item{ quantity > 1 && 's' || '' } al carrito!
+            </Alert>
+        </Snackbar>     
     </>
   )
 }

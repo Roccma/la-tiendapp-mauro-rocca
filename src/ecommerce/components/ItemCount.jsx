@@ -2,15 +2,10 @@ import React, { useState } from 'react'
 import { AddShoppingCartRounded } from '@mui/icons-material'
 import { Alert, Button, Grid, Snackbar, Typography } from '@mui/material'
 
-export const ItemCount = ({ stock, initial }) => {
+export const ItemCount = ({ stock, initial, onAdd }) => {
 
     const [ quantity, setQuantity ] = useState( initial );
-    const [ open, setOpen ] = useState( false );
     
-    const onAddToCart = () => {
-        setOpen( !open );
-    }
-
     return (
         <Grid container
             sx = {{ mt: 5 }}
@@ -73,14 +68,10 @@ export const ItemCount = ({ stock, initial }) => {
                     sx = {{ color: 'white',
                             boxShadow: 0}}
                     disabled = { stock < 1 }
-                    onClick = { onAddToCart }>
+                    onClick = { () => onAdd( quantity ) }>
                     <AddShoppingCartRounded sx = {{ mr: 2 }}/>Agregar al carrito
                 </Button>
-                <Snackbar open={open} autoHideDuration={5000} onClose= { () => { setOpen( !open ) } }>
-                    <Alert onClose={ () => { setOpen( !open ) } } severity="success" sx={{ width: '100%' }} vertical = "top" horizontal = "right">
-                        Has agregado { quantity } item{ quantity > 1 && 's' || '' } al carrito!
-                    </Alert>
-                </Snackbar>
+                
             </Grid>
 
         </Grid>
