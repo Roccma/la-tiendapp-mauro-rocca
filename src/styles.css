@@ -36,3 +36,8 @@
     font-size: 18px;
     display: inline-block;
 }
+
+.icon-badge{
+    position: relative;
+    top: 5px;
+}

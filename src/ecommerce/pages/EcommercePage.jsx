@@ -1,4 +1,5 @@
 import React from 'react'
+import { Grid } from '@mui/material'
 import { ImagesCarousel } from '../components'
 import { ItemListContainer } from '../components'
 import { EcommerceLayout } from '../layouts/EcommerceLayout'
@@ -21,7 +22,15 @@ export const EcommercePage = () => {
   return (
     <EcommerceLayout>
         <ImagesCarousel settings={ carouselSettings } images = { images } />
-        <ItemListContainer greeting = "Para negocios despegados" />
+        <Grid
+        container
+        sx = {{
+            maxWidth: 1280,
+            m: 'auto',
+            mt: 5
+        }}>
+          <ItemListContainer title = "Los más comprados" />
+        </Grid>
     </EcommerceLayout>
   )
 }
