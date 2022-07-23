@@ -2,53 +2,92 @@ import React from 'react'
 import { Grid, Typography } from '@mui/material'
 import { ImagesCarousel } from './ImagesCarousel'
 import { ItemText } from './ItemText';
+import { ItemOwnerData } from './ItemOwnerData';
+import { ItemDues } from './ItemDues';
+import { ItemDetailFooter } from './ItemDetailFooter';
 
-export const ItemDetail = () => {
-    const carouselSettings = {
-        showThumbs : false,
-        showStatus : true,
-        infiniteLoop : false,
-        autoPlay : false
-      };
-      
-    const images = [
-      '/assets/pizza_1.png',
-      '/assets/pizza_2.jpg',
-      '/assets/pizza_3.jpg',
-      '/assets/pizza_4.jfif'
-    ];
-
-    const itemText = {
-        name :  "Pizza ba-con-chedar",
-        description : "Porque la creatividad está a la orden del día. La mejor pizza con Bacon (Panceta para los que no saben english) y Queso cheddar que vas a encontrar! Dejate de joder con restaurantes finos, pedinos que encima te la llevamos al toque y disfrutás de una rica pizza! Qué más querés?",
-        category : 'Comida',
-        price: 350,
-        stock: 5
+export const ItemDetail = ( { product } ) => {
+  let carouselSettings = {
+      showThumbs : false,
+      showStatus : true,
+      infiniteLoop : false,
+      autoPlay : false
     };
-    
+  
+  if(!product) return <img src = '/assets/error404.png' className='img-not-found'/>;
+  
+  if( product > 0 && product.images.length === 1 ) {
+    carouselSettings = {
+      ...carouselSettings,
+      showStatus: false,
+      showIndicators: false
+    }
+  }
+  
   return (
     <>
-        <Grid item
+      <Grid
+        container
         sx = {{
-            mt: 5
-        }}
-        sm = {6}>
-            <ImagesCarousel 
-                settings = { carouselSettings }
-                images = { images }
-                applyStyles = { true }/>
-        </Grid>
-        <Grid item
+            maxWidth: 1280,
+            m: 'auto'
+        }}>
+          <Grid item
             sx = {{
-                mt: 5,
-                pl: 5,
-                pr: 5
+              mt: 5,
+              pl: 5
             }}
             sm = {6}>
-            <ItemText 
-                {...itemText}/>
-        </Grid>
-    </>
-    
+              <ImagesCarousel 
+                  settings = { carouselSettings }
+                  images = { product.images }
+                  applyStyles = { true }/>
+          
+          </Grid>
+          <Grid item
+              sx = {{
+                  mt: 5,
+                  pl: 5,
+                  pr: 5
+              }}
+              sm = {6}>
+              <ItemText 
+                  { ...product }/>
+          </Grid>
+      </Grid>
+      <Grid
+        container
+        sx = {{
+            maxWidth: 1280,
+            m: 'auto'
+        }}>
+        <Grid item
+            sx = {{
+              mt: 3,
+              pl: 5
+            }}
+            sm = {6}>
+            <ItemOwnerData owner = { product.owner }/>
+        </Grid> 
+        <Grid item
+            sx = {{
+              mt: 3,
+              pl: 5,
+              pr: 5
+            }}
+            sm = {6}>
+            <ItemDues 
+                max_dues={ product.max_dues }
+                price = { product.price } />
+        </Grid>   
+      </Grid>
+      <Grid container
+        sx = {{
+          maxWidth: 1280,
+          m: 'auto'
+        }}>
+        <ItemDetailFooter />
+      </Grid>
+    </> 
   )
 }

@@ -2,18 +2,17 @@ import { LocalPizzaRounded, CakeRounded, PaletteRounded, CheckroomRounded, Clean
 
 export const getCategoryIcon = ( category ) => {
     switch( category ){
-        case 'Comidas':
+        case 1:
             return <LocalPizzaRounded className = 'icon-badge'/>;
-        case 'Pastelería':
+        case 2:
             return <CakeRounded className = 'icon-badge'/>;
-        case 'Artesanías':
+        case 3:
             return <PaletteRounded className = 'icon-badge'/>;
-        case 'Ropa':
+        case 4:
             return <CheckroomRounded className = 'icon-badge'/>;
-        case 'Servicios':
+        case 5:
             return <CleaningServicesRounded className = 'icon-badge'/>;
-        case 'Eventos':
-            return <EventAvailableRounded className = 'icon-badge'/>;
-        
+        case 6:
+            return <EventAvailableRounded className = 'icon-badge'/>;    
     }
 }

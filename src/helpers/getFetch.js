@@ -1,10 +1,25 @@
 import { products } from "../data/products";
 
-export const getFetch = () => {
+export const getFetch = ( id ) => {
     return new Promise( ( resolve, reject ) => {
-        setTimeout(
-            () => resolve( products ),
-            3000
-        )
+        if( id ) {
+            setTimeout(
+                () => {
+                    const filteredProduct = products.data.find(
+                        product => {
+                            return product.id === id;
+                        }
+                    );
+                    resolve( filteredProduct )
+                },
+                2000
+            );
+        }
+        else{
+            setTimeout(
+                () => resolve( products.data ),
+                3000
+            );
+        }
     } );
 }

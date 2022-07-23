@@ -41,3 +41,27 @@
     position: relative;
     top: 5px;
 }
+
+hr {
+    height: 1px;
+    background-color: #ccc;
+    border: none;
+}
+
+.div-due{
+    margin-bottom: 20px;
+}
+
+.img-owner{
+    width: 125px;
+    height: 125px;
+    margin: auto;
+    border-radius: 50%;
+    object-fit:cover;
+}
+
+.img-not-found{
+    margin: auto;
+    display: block;
+    margin-top: 50px;
+}

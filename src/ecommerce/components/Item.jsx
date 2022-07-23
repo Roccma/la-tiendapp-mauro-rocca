@@ -1,6 +1,7 @@
 import React from 'react'
 import { Badge, Button, Card, CardActions, CardContent, CardMedia, Typography } from '@mui/material'
 import { getCategoryIcon } from '../../helpers/getCategoryIcon'
+import { getCategoryName } from '../../helpers/getCategoryName'
 
 export const Item = ( { id, name, price, stock, category, images } ) => {
   return (
@@ -19,7 +20,7 @@ export const Item = ( { id, name, price, stock, category, images } ) => {
       />
       <CardContent>
         <Typography variant='overline' color='secondary'>
-        { getCategoryIcon( category ) } { category } 
+        { getCategoryIcon( category ) } { getCategoryName( category ) } 
         </Typography>
         <Typography gutterBottom variant="h6" component="div" sx = {{ fontSize: 22 }}>
           {name}

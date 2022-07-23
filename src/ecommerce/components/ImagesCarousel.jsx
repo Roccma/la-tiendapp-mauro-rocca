@@ -7,8 +7,8 @@ export const ImagesCarousel = ( { settings, images, applyStyles = false } ) => {
     <Carousel {...settings}>
       { images.map(
         ( image, idx ) => 
-          (<div>
-              <img src = { image } className = { applyStyles ? 'img-carousel' : '' } key = { idx }/>
+          (<div key = { idx }>
+              <img src = { image } className = { applyStyles ? 'img-carousel' : '' }/>
             </div>)
       ) }
         

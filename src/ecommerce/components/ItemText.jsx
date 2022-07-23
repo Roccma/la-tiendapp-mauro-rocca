@@ -1,8 +1,11 @@
 import React, { useState } from 'react'
 import { Alert, Grid, Snackbar, Typography } from '@mui/material'
 import { ItemCount } from './ItemCount';
+import { ItemDues } from './ItemDues';
+import { getCategoryName } from '../../helpers/getCategoryName';
+import { getCategoryIcon } from '../../helpers/getCategoryIcon';
 
-export const ItemText = ( { name, description, category, price, stock } ) => {
+export const ItemText = ( { name, description, category, price, stock, max_dues } ) => {
 
   const [ quantity, setQuantity ] = useState( 1 );
   const [ open, setOpen ] = useState( false );
@@ -17,7 +20,7 @@ export const ItemText = ( { name, description, category, price, stock } ) => {
 
   return (
     <>  
-        <Typography variant = "overline" color = 'secondary'>Emprendimiento de { category }</Typography>
+        <Typography variant = "overline" color = 'secondary'> { getCategoryIcon( category ) } Emprendimiento de { getCategoryName( category ) }</Typography>
         <h1>{ name }</h1>
         <Typography sx = {{
             textAlign: 'justify'
@@ -53,7 +56,7 @@ export const ItemText = ( { name, description, category, price, stock } ) => {
         <ItemCount 
             stock = { stock }
             initial = { quantity }
-            onAdd = { onAdd }/>       
+            onAdd = { onAdd }/>     
         <Snackbar open={open} autoHideDuration={5000} onClose= { () => { setOpen( !open ) } }>
             <Alert onClose={ () => { setOpen( !open ) } } 
                     severity="success" sx={{ width: '100%' }}>
