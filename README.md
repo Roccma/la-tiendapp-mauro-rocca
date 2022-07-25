@@ -55,11 +55,11 @@ Si el resultado, es el número de la versión, la herramienta ya está instalada
 
 # Librerías utilizadas
 
-React (https://es.reactjs.org/)
-Material UI (https://mui.com/)
-Auth0 (https://auth0.com/)
-react-responsive-carousel (https://www.npmjs.com/package/react-responsive-carousel)
-Notiflix (https://notiflix.github.io/)
+React (https://es.reactjs.org/)<br>
+Material UI (https://mui.com/)<br>
+Auth0 (https://auth0.com/)<br>
+react-responsive-carousel (https://www.npmjs.com/package/react-responsive-carousel)<br>
+Notiflix (https://notiflix.github.io/)<br>
 
 
 # Contacto
