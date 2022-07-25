@@ -17,7 +17,14 @@ export const getFetch = ( id ) => {
         }
         else{
             setTimeout(
-                () => resolve( products.data ),
+                () => {
+                    const filteredProducts = products.data.filter(
+                        product => {
+                            return product.outstanding;
+                        }
+                    );
+                    resolve( filteredProducts );
+                },
                 3000
             );
         }

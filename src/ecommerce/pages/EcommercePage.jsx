@@ -29,7 +29,7 @@ export const EcommercePage = () => {
             m: 'auto',
             mt: 5
         }}>
-          <ItemListContainer title = "Los más comprados" />
+          <ItemListContainer title = "Los destacados" />
         </Grid>
     </EcommerceLayout>
   )

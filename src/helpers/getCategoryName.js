@@ -3,7 +3,7 @@ export const getCategoryName = ( categoryId ) => {
     case 1: 
         return 'Comidas';
     case 2: 
-        return 'Patelería';
+        return 'Pastelería';
     case 3: 
         return 'Artesanías';
     case 4: 

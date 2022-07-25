@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { ItemList } from './ItemList'
 import { Grid, Typography } from '@mui/material'
-import { getFetch } from '../../helpers/getFetch';
+import { getFetch } from '../../../helpers';
 import Notiflix from 'notiflix';
 
 export const ItemListContainer = ( { title } ) => {

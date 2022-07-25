@@ -1,49 +1,54 @@
 import React from 'react'
-import { AppBar, Button, Grid, IconButton, Toolbar } from '@mui/material'
+import { AppBar, Button, Grid, IconButton, Toolbar, Typography } from '@mui/material'
 import { MenuRounded, HomeRounded, LocalPizzaRounded, CakeRounded, PaletteRounded, CheckroomRounded, CleaningServicesRounded, EventAvailableRounded } from '@mui/icons-material'
-import { EcommercePage } from '../pages/EcommercePage'
 import { Box } from '@mui/system'
 import { CartWidget } from './CartWidget'
+import { LoginWidget } from './LoginWidget'
+import { UserWidget } from './UserWidget'
+import { useAuth0 } from "@auth0/auth0-react";
+import { Link, NavLink } from 'react-router-dom'
 
 export const Navbar = () => {
+
+  const { user, isAuthenticated } = useAuth0();
 
   const menuItems = [
     {
       name: 'Home',
       icon: <HomeRounded className = 'menu-icon'/>,
-      to: <EcommercePage />
+      to: '/'
     },
     {
       name: 'Comidas',
       icon: <LocalPizzaRounded className = 'menu-icon'/>,
-      to: <EcommercePage />
+      to: '/category/1' 
     },
     {
       name: 'Pastelería',
       icon: <CakeRounded className = 'menu-icon'/>,
-      to: <EcommercePage />
+      to: '/category/2'
     },
     {
       name: 'Artesanías',
       icon: < PaletteRounded className = 'menu-icon'/>,
-      to: <EcommercePage />
+      to: '/category/3'
     },
     {
       name: 'Ropa',
       icon: <CheckroomRounded className = 'menu-icon'/>,
-      to: <EcommercePage />
+      to: '/category/4'
     },
     {
       name: 'Servicios',
       icon: <CleaningServicesRounded className = 'menu-icon'/>,
-      to: <EcommercePage />
+      to: '/category/5'
     },
     {
       name: 'Eventos',
       icon: <EventAvailableRounded className = 'menu-icon'/>,
-      to: <EcommercePage />
+      to: '/category/6'
     }
-  ]
+  ];
 
   return (
     <AppBar
@@ -60,11 +65,13 @@ export const Navbar = () => {
                 }}>
                 <MenuRounded />
             </IconButton>
-            <img 
-              src="/assets/la-tiendapp-logo-menu.png" 
-              alt="La TiendApp" 
-              className='img-logo'
-            />
+            <Link to = '/'>
+              <img 
+                src="/assets/la-tiendapp-logo-menu.png" 
+                alt="La TiendApp" 
+                className='img-logo'
+              />
+            </Link>
             <Grid container
                 direction = 'row'
                 justifyContent = 'space-between'
@@ -72,23 +79,26 @@ export const Navbar = () => {
                 
                 <Box sx={{ flexGrow: 1, 
                             display: { xs: 'none', md: 'flex' },
-                            ml: '200px'}}>
+                            ml: '150px'}}>
                       {menuItems.map((item) => (
                         <Button
                           key={item.name}
                           sx={{ 
                             color: 'white', 
-                            display: 'block',
-                            ml: 3
+                            ml: 2,
+                            textTransform: 'none'
                           }}
+                          component={NavLink}
+                          to = { item.to }
                         >
                           {item.icon}
-                          {item.name}
+                          <Typography variant = 'body1'>{item.name}</Typography>
                         </Button>
                       ))}
                 </Box>
           </Grid>
           <CartWidget quantity = {1} />
+          { isAuthenticated && <UserWidget { ...user } /> || <LoginWidget /> }
         </Toolbar>
 
     </AppBar>

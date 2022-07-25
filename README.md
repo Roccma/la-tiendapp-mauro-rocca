@@ -52,6 +52,16 @@ node -v
 
 Si el resultado, es el número de la versión, la herramienta ya está instalada, de lo contario hay que descargarla.
 
+
+# Librerías utilizadas
+
+React (https://es.reactjs.org/)
+Material UI (https://mui.com/)
+Auth0 (https://auth0.com/)
+react-responsive-carousel (https://www.npmjs.com/package/react-responsive-carousel)
+Notiflix (https://notiflix.github.io/)
+
+
 # Contacto
 
 **Mauro Rocca**

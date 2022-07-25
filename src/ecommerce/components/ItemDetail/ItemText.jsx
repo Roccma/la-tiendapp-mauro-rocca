@@ -1,15 +1,15 @@
 import React, { useState } from 'react'
 import { Alert, Grid, Snackbar, Typography } from '@mui/material'
 import { ItemCount } from './ItemCount';
-import { ItemDues } from './ItemDues';
-import { getCategoryName } from '../../helpers/getCategoryName';
-import { getCategoryIcon } from '../../helpers/getCategoryIcon';
+import { getCategoryName, getCategoryIcon } from '../../../helpers';
 
-export const ItemText = ( { name, description, category, price, stock, max_dues } ) => {
+export const ItemText = ( { name, description, category, price, stock } ) => {
 
   const [ quantity, setQuantity ] = useState( 1 );
   const [ open, setOpen ] = useState( false );
   
+  stock = parseInt( stock );
+
   const avaibalityText = stock > 1 ? 'disponibles' : 'disponible';
   
 

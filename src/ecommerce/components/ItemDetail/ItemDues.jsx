@@ -1,6 +1,6 @@
-import { Card, Grid, Typography } from '@mui/material'
 import React from 'react'
-import { getCardName } from '../../helpers/getCardName'
+import { Card, Typography } from '@mui/material'
+import { getCardName } from '../../../helpers'
 
 export const ItemDues = ( { price, max_dues } ) => {
   return (

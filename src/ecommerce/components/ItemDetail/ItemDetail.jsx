@@ -1,6 +1,6 @@
 import React from 'react'
-import { Grid, Typography } from '@mui/material'
-import { ImagesCarousel } from './ImagesCarousel'
+import { Grid } from '@mui/material'
+import { ImagesCarousel } from '../ImagesCarousel'
 import { ItemText } from './ItemText';
 import { ItemOwnerData } from './ItemOwnerData';
 import { ItemDues } from './ItemDues';
@@ -16,7 +16,7 @@ export const ItemDetail = ( { product } ) => {
   
   if(!product) return <img src = '/assets/error404.png' className='img-not-found'/>;
   
-  if( product > 0 && product.images.length === 1 ) {
+  if( product && product.images.length === 1 ) {
     carouselSettings = {
       ...carouselSettings,
       showStatus: false,

@@ -6,7 +6,7 @@
 }
 
 .menu-icon{
-    top: 7px;
+    top: -2px;
     margin-right: 5px;
     position: relative;
     color: white;
@@ -64,4 +64,23 @@ hr {
     margin: auto;
     display: block;
     margin-top: 50px;
+}
+
+.img-user{
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    margin-right: 5px;
+}
+
+.active, .active svg{
+    color: yellow !important;
+}
+
+.fab-filters{
+    box-shadow: none !important;
+}
+
+.catalog-list{
+    overflow-y: auto;
 }

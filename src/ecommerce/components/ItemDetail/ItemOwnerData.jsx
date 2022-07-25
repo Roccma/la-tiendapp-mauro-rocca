@@ -16,7 +16,7 @@ export const ItemOwnerData = ( { owner } ) => {
         <Grid container
               sx = {{ mt: 3 }}>
           <Grid item
-            xs = { 4 }
+            xs = { 3 }
             sx = {{ display: 'flex',
                     flexWrap: 'wrap' }}>
               <img src = { avatar }
@@ -27,7 +27,7 @@ export const ItemOwnerData = ( { owner } ) => {
                                   fontSize: '18px' }}>{ name }</Typography>
           </Grid>
           <Grid item
-            xs = { 8 }
+            xs = { 9 }
             sx = {{ pl: 5 }}>
               <ItemOwnerDataTable 
                 email = { email } 

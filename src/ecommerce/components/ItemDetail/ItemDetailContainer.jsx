@@ -1,7 +1,7 @@
-import Notiflix from 'notiflix';
 import React, { useEffect, useState } from 'react'
+import Notiflix from 'notiflix';
 import { useParams } from 'react-router-dom';
-import { getFetch } from '../../helpers/getFetch';
+import { getFetch } from '../../../helpers';
 import { ItemDetail } from './ItemDetail'
 
 export const ItemDetailContainer = () => {
@@ -30,7 +30,7 @@ export const ItemDetailContainer = () => {
           }
         );
       },
-    []
+    [ id ]
   )
 
   return (
