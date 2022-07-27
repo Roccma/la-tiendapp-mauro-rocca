@@ -5,19 +5,10 @@ import { getCategoryName, getCategoryIcon } from '../../../helpers';
 
 export const ItemText = ( { name, description, category, price, stock } ) => {
 
-  const [ quantity, setQuantity ] = useState( 1 );
-  const [ open, setOpen ] = useState( false );
-  
   stock = parseInt( stock );
 
   const avaibalityText = stock > 1 ? 'disponibles' : 'disponible';
-  
-
-  const onAdd = ( quantitySelected ) => {
-    setQuantity( quantitySelected );
-    setOpen( !open );
-  }
-
+ 
   return (
     <>  
         <Typography variant = "overline" color = 'secondary'> { getCategoryIcon( category ) } Emprendimiento de { getCategoryName( category ) }</Typography>
@@ -52,17 +43,7 @@ export const ItemText = ( { name, description, category, price, stock } ) => {
                         { stock > 0 && `${ stock } ${ avaibalityText }` || 'Sin stock actualmente' } 
                 </Typography>
             </Grid>
-        </Grid>
-        <ItemCount 
-            stock = { stock }
-            initial = { quantity }
-            onAdd = { onAdd }/>     
-        <Snackbar open={open} autoHideDuration={5000} onClose= { () => { setOpen( !open ) } }>
-            <Alert onClose={ () => { setOpen( !open ) } } 
-                    severity="success" sx={{ width: '100%' }}>
-                Has agregado { quantity } item{ quantity > 1 && 's' || '' } al carrito!
-            </Alert>
-        </Snackbar>     
+        </Grid>    
     </>
   )
 }

@@ -1,12 +1,27 @@
-import React from 'react'
-import { Grid } from '@mui/material'
+import React, { useState } from 'react'
+import { Alert, Grid, Snackbar } from '@mui/material'
 import { ImagesCarousel } from '../ImagesCarousel'
 import { ItemText } from './ItemText';
 import { ItemOwnerData } from './ItemOwnerData';
 import { ItemDues } from './ItemDues';
 import { ItemDetailFooter } from './ItemDetailFooter';
+import { ItemCount } from './ItemCount';
+import { ItemContinueShop } from './ItemContinueShop';
 
 export const ItemDetail = ( { product } ) => {
+
+  const [ quantity, setQuantity ] = useState( 1 );
+  const [ open, setOpen ] = useState( false );
+  const [ addedToCart, setAddedToCart ] = useState( false );
+
+  const onAdd = ( quantitySelected ) => {
+    if( quantitySelected <= product.stock ){
+      setQuantity( quantitySelected );
+      setOpen( !open );
+      setAddedToCart( true );
+    }
+  }
+
   let carouselSettings = {
       showThumbs : false,
       showStatus : true,
@@ -53,6 +68,22 @@ export const ItemDetail = ( { product } ) => {
               sm = {6}>
               <ItemText 
                   { ...product }/>
+              
+              { 
+                addedToCart  
+                && <ItemContinueShop /> 
+                || <ItemCount 
+                    stock = { product.stock }
+                    initial = { quantity }
+                    onAdd = { onAdd }/> 
+              }
+              
+              <Snackbar open={open} autoHideDuration={5000} onClose= { () => { setOpen( !open ) } }>
+                  <Alert onClose={ () => { setOpen( !open ) } } 
+                          severity="success" sx={{ width: '100%' }}>
+                      Has agregado { quantity } item{ quantity > 1 && 's' || '' } al carrito!
+                  </Alert>
+              </Snackbar> 
           </Grid>
       </Grid>
       <Grid

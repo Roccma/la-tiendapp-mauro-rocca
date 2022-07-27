@@ -14,10 +14,7 @@ export const ItemCount = ({ stock, initial, onAdd }) => {
             <Grid item
                 sm = {6}
                 sx = {{ mt: 1 }}>
-                <Typography sx = {{
-                   fontWeight: 'bold'  
-               }} 
-               variant = 'subtitle1'>¿Cuántas unidades querés?</Typography>
+                <Typography sx = {{ fontWeight: 'bold' }} variant = 'subtitle1'>¿Cuántas unidades querés?</Typography>
                 <div className={ stock > 0 && 'quantity-enabled' || 'quantity-disabled' }>
                     <Button
                         variant="contained"
@@ -66,7 +63,9 @@ export const ItemCount = ({ stock, initial, onAdd }) => {
                     variant="contained"
                     elevation = { 0 }
                     sx = {{ color: 'white',
-                            boxShadow: 0}}
+                            boxShadow: 0,
+                            width: '100%',
+                            ml: 3}}
                     disabled = { stock < 1 }
                     onClick = { () => onAdd( quantity ) }>
                     <AddShoppingCartRounded sx = {{ mr: 2 }}/>Agregar al carrito
