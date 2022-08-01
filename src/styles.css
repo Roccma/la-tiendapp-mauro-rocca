@@ -84,3 +84,34 @@ hr {
 .catalog-list{
     overflow-y: auto;
 }
+
+html, 
+body,
+#root {
+    height: 100%;
+    background: #F4F4F4;
+}
+
+.cart-img{
+    width: 175px;
+    height: 150px;
+    object-fit:cover;
+}
+
+.cart-avatar-img{
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+}
+
+.cart-span-owner{
+    margin-left: 10px;
+    top: -10px;
+    position: relative;
+}
+
+.cart-stock-item{
+    font-size: 14px;
+    margin-left: 10px;
+    color: gray;
+}

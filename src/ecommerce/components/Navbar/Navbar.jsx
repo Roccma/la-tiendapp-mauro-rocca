@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { AppBar, Button, Grid, IconButton, Toolbar, Typography } from '@mui/material'
 import { MenuRounded, HomeRounded, LocalPizzaRounded, CakeRounded, PaletteRounded, CheckroomRounded, CleaningServicesRounded, EventAvailableRounded } from '@mui/icons-material'
 import { Box } from '@mui/system'
@@ -7,10 +7,28 @@ import { LoginWidget } from './LoginWidget'
 import { UserWidget } from './UserWidget'
 import { useAuth0 } from "@auth0/auth0-react";
 import { Link, NavLink } from 'react-router-dom'
+import { useCartContext } from '../../../context/CartProvider'
 
 export const Navbar = () => {
 
+  const [ cartQuantity, setCartQuantity ] = useState(0);
+  const { cartItems, lastUpdate } = useCartContext();
+
+
   const { user, isAuthenticated } = useAuth0();
+
+  useEffect(() => {
+    setItemsQuantity();
+  }, [ lastUpdate ])
+
+  const setItemsQuantity = () => {
+    let total = 0;
+    cartItems.map(
+      item => total += item.quantity
+    );
+    setCartQuantity( total );
+  }
+  
 
   const menuItems = [
     {
@@ -97,7 +115,7 @@ export const Navbar = () => {
                       ))}
                 </Box>
           </Grid>
-          <CartWidget quantity = {1} />
+          <CartWidget quantity = { cartQuantity } />
           { isAuthenticated && <UserWidget { ...user } /> || <LoginWidget /> }
         </Toolbar>
 

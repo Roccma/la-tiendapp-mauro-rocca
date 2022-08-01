@@ -7,18 +7,28 @@ import { ItemDues } from './ItemDues';
 import { ItemDetailFooter } from './ItemDetailFooter';
 import { ItemCount } from './ItemCount';
 import { ItemContinueShop } from './ItemContinueShop';
+import { useCartContext } from '../../../context/CartProvider';
+import Notiflix from 'notiflix';
 
 export const ItemDetail = ( { product } ) => {
 
   const [ quantity, setQuantity ] = useState( 1 );
-  const [ open, setOpen ] = useState( false );
+  // const [ open, setOpen ] = useState( false );
   const [ addedToCart, setAddedToCart ] = useState( false );
+
+  const { addItem } = useCartContext();
 
   const onAdd = ( quantitySelected ) => {
     if( quantitySelected <= product.stock ){
       setQuantity( quantitySelected );
-      setOpen( !open );
-      setAddedToCart( true );
+      //setOpen( !open );
+      try{
+        addItem( product, quantitySelected );
+        setAddedToCart( true );
+      }
+      catch( error ){
+        Notiflix.Notify.failure( error );
+      }
     }
   }
 
@@ -73,17 +83,17 @@ export const ItemDetail = ( { product } ) => {
                 addedToCart  
                 && <ItemContinueShop /> 
                 || <ItemCount 
-                    stock = { product.stock }
+                    product = { product }
                     initial = { quantity }
                     onAdd = { onAdd }/> 
               }
               
-              <Snackbar open={open} autoHideDuration={5000} onClose= { () => { setOpen( !open ) } }>
+              {/* <Snackbar open={open} autoHideDuration={5000} onClose= { () => { setOpen( !open ) } }>
                   <Alert onClose={ () => { setOpen( !open ) } } 
                           severity="success" sx={{ width: '100%' }}>
                       Has agregado { quantity } item{ quantity > 1 && 's' || '' } al carrito!
                   </Alert>
-              </Snackbar> 
+              </Snackbar>  */}
           </Grid>
       </Grid>
       <Grid
