@@ -1,10 +1,9 @@
-import React from 'react'
+import React, { memo } from 'react'
 import { Card, CardContent, CardMedia, Typography } from '@mui/material'
 import { getCategoryIcon, getCategoryName } from '../../../helpers'
 import { useNavigate } from 'react-router-dom'
-import { Box } from '@mui/system'
 
-export const Item = ( { id, name, price, stock, category, images, type = 'card' } ) => {
+export const Item = memo( ( { id, name, price, stock, category, images, type = 'card' } ) => {
 
   const navigate = useNavigate();
 
@@ -103,4 +102,4 @@ export const Item = ( { id, name, price, stock, category, images, type = 'card' 
         </CardContent>
       </Card> )
   )
-}
+});

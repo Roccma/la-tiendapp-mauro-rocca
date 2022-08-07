@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, memo } from 'react'
 import { ItemList } from './ItemList'
 import { Grid, Typography } from '@mui/material'
 import { getFetch } from '../../../helpers';
 import Notiflix from 'notiflix';
 
-export const ItemListContainer = ( { title } ) => {
+export const ItemListContainer = memo(( { title } ) => {
   const [ products, setProducts ] = useState([]);
 
   useEffect(
@@ -42,4 +42,4 @@ export const ItemListContainer = ( { title } ) => {
         </Grid>
     </Grid>
   )
-}
+});

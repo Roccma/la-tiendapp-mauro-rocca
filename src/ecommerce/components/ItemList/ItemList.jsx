@@ -1,7 +1,7 @@
-import React from 'react'
+import React, { memo } from 'react'
 import { Item } from './Item';
 
-export const ItemList = ( { products } ) => {
+export const ItemList = memo( ( { products } ) => {
 
   return (
     <>
@@ -14,4 +14,4 @@ export const ItemList = ( { products } ) => {
       }
     </>
   )
-}
+});
