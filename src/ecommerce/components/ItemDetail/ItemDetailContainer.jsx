@@ -3,6 +3,7 @@ import Notiflix from 'notiflix';
 import { useParams } from 'react-router-dom';
 import { getFetch } from '../../../helpers';
 import { ItemDetail } from './ItemDetail'
+import { getFirestore, doc, getDoc } from 'firebase/firestore';
 
 export const ItemDetailContainer = () => {
 
@@ -16,10 +17,12 @@ export const ItemDetailContainer = () => {
       Notiflix.Loading.hourglass('Obteniendo datos, por favor espere...', {
         svgColor: '#FF9900'
       });
-      getFetch( parseInt( id ) )
+      const db = getFirestore();
+      const queryProduct = doc(db, 'products', id);
+      getDoc( queryProduct )
         .then( result => {
-          setProduct( result );
-        })
+          setProduct( { id: result.id, ...result.data() } )
+        } )
         .catch( error => {
           Notiflix.Notify.failure( error.message );
         })
@@ -29,9 +32,8 @@ export const ItemDetailContainer = () => {
             setLoading(false);
           }
         );
-      },
-    [ id ]
-  )
+      }, [ id ]
+  );
 
   return (
     !loading && <ItemDetail product = { product }/>

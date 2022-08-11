@@ -3,10 +3,11 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import { BrowserRouter } from 'react-router-dom'
 import { CartProvider } from './context/CartProvider'
+import { firebaseConnections } from './firebase/config'
 import { LaTiendaApp } from './LaTiendApp'
 import './styles.css'
 
-firebaseConnections()
+firebaseConnections();
 
 ReactDOM.createRoot(document.getElementById('root')).render(
     <React.StrictMode>
