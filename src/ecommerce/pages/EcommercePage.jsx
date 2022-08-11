@@ -14,9 +14,9 @@ export const EcommercePage = () => {
   };
   
   const images = [
-    'assets/slider_1_small.png',
-    'assets/slider_2_small.png',
-    'assets/slider_3_small.png'
+    '/assets/slider_1_small.png',
+    '/assets/slider_2_small.png',
+    '/assets/slider_3_small.png'
   ];
 
   return (

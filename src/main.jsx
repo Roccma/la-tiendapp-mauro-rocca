@@ -6,6 +6,8 @@ import { CartProvider } from './context/CartProvider'
 import { LaTiendaApp } from './LaTiendApp'
 import './styles.css'
 
+firebaseConnections()
+
 ReactDOM.createRoot(document.getElementById('root')).render(
     <React.StrictMode>
         <BrowserRouter>
