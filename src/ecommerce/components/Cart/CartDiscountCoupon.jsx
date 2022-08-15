@@ -8,7 +8,8 @@ export const CartDiscountCoupon = () => {
             sx = {{ width: '100%',
                     p: 3,
                     ml: 3,
-                    mt: 3 }}>
+                    mt: 3,
+                    mb: 5 }}>
           <Typography variant = 'h5' sx = {{ fontSize: 28 }}>Cupón de descuento</Typography>
           <hr />
           <Grid container sx = {{ mt: 3 }}>

@@ -1,8 +1,7 @@
 import React, { useEffect, useState, memo } from 'react'
 import { ItemList } from './ItemList'
 import { Grid, Typography } from '@mui/material'
-import { collection, doc, getDoc, getDocs, getFirestore, query, where } from 'firebase/firestore';
-import { getFetch } from '../../../helpers';
+import { collection, getDocs, getFirestore, query, where } from 'firebase/firestore';
 import Notiflix from 'notiflix';
 
 export const ItemListContainer = memo(( { title } ) => {
@@ -32,8 +31,6 @@ export const ItemListContainer = memo(( { title } ) => {
         )
     }, []
    );
-
-   console.log(products);
 
   return (
     <Grid container>

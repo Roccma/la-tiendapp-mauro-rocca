@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import { Grid, Box, useEventCallback } from '@mui/material'
-import { getCategories, getFetchInCatalog, getPriceFilters } from '../../../helpers';
+import { getCategories, getFetchInCatalog, getPriceFilters, getPricesFilterById } from '../../../helpers';
 import { CatalogFilters } from './CatalogFilters'
 import Notiflix from 'notiflix';
 import { CatalogList } from './CatalogList';
 import { useNavigate, useParams } from 'react-router-dom';
 import { CatalogNotResults } from './CatalogNotResults';
+import { collection, doc, getDoc, getDocs, getFirestore, orderBy, query, where } from 'firebase/firestore';
 
 export const CatalogContainer = () => {
   
@@ -21,6 +22,10 @@ export const CatalogContainer = () => {
 
   const includedIds = ids.split(',');
 
+  let includedIdsForFilters = includedIds.map(
+    (id) => ( parseInt(id) )
+  );
+
   useEffect(
     () => {
       Notiflix.Loading.hourglass('Obteniendo datos, por favor espere...', {
@@ -31,16 +36,27 @@ export const CatalogContainer = () => {
       sections.forEach( section => section.checked = includedIds.includes( section.id.toString() ) );
       setCategories( sections );
       setPricesOptions( getPriceFilters() );
-      getFetchInCatalog( ids, prices )
+      const db = getFirestore();
+      const queryProducts = collection(db, 'products');
+      const { min, max } = getPricesFilterById( prices );
+      let filteredProducts = query( queryProducts, where( 'category', 'in', includedIdsForFilters ), where( 'price', '>', min ), orderBy('price', 'asc') );
+      if( [2, 3].includes( parseInt( prices ) ) ){
+          filteredProducts = query( filteredProducts, where('price', '<', max ) );
+      }
+      getDocs( filteredProducts )
         .then( result => {
-          setProducts( result );
-        })
+          setProducts( result.docs.map( 
+                                    product => ( 
+                                        { id: product.id, ...product.data() } 
+                                      ) 
+                                    ));
+        } )
         .catch( error => Notiflix.Notify.failure( error.message ))
         .finally(
           () => {
             Notiflix.Loading.remove();
           }
-        )
+        );
     }, [ids, prices]
   );
 
