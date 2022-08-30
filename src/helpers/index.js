@@ -1,3 +1,4 @@
+export * from './createPreference';
 export * from './getCardName';
 export * from './getCategories';
 export * from './getCategoryIcon';
@@ -6,3 +7,4 @@ export * from './getFetch';
 export * from './getFetchInCatalog';
 export * from './getPriceFilters';
 export * from './getPricesFilterById';
+export * from './notiflixSettings';

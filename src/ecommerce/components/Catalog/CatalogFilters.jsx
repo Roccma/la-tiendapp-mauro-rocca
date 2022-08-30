@@ -36,7 +36,8 @@ export const CatalogFilters = ( { categories, pricesOptions, selectedPrice, hand
                 mr: 5,
                 p: 3,
                 position: 'absolute',
-                width: '350px' }}>
+                width: '350px',
+                overflowY: 'auto' }}>
         <Typography variant = 'h6' color = 'primary'><FilterAltRounded sx = {{ position: 'relative', top: '4px' }}/> Filtros</Typography>
         <hr />
         <Typography variant = 'subtitle1' sx = {{ fontWeight: 'bold', mt: 4, mb: 2 }}>Categorías</Typography>

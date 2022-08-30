@@ -1,0 +1,1 @@
+export const generalSettings = { position: 'center-bottom', width: '550px', fontSize: '18px' };

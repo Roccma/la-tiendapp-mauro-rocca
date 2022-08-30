@@ -6,7 +6,7 @@ import { DeleteSweepRounded } from '@mui/icons-material'
 
 export const CartItemsList = () => {
 
-  const { cartItems, removeItem, clear } = useCartContext();
+  const { cartItems, removeItem, clear, step } = useCartContext();
   return (
     <Card variant="outlined" 
           sx = {{ width: '100%',
@@ -34,7 +34,7 @@ export const CartItemsList = () => {
             { 
               cartItems.map(
                 product => (
-                  <CartItem key = { product.item.id } product = { product } removeItem = { removeItem }/>
+                  <CartItem key = { product.item.id } product = { product } removeItem = { removeItem } step = { step }/>
                 )
               )
             }

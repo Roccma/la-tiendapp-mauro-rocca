@@ -14,8 +14,8 @@ ReactDOM.createRoot(document.getElementById('root')).render(
         <BrowserRouter>
             <CartProvider>
                 <Auth0Provider
-                    domain="dev-w-0b99-f.us.auth0.com"
-                    clientId="RwjuFJDlmB5whBJMOaRBth8AjaT607Ng"
+                    domain="dev--d5ccw5m.us.auth0.com"
+                    clientId="XOOa6lTCoIh8EfC742VeRzDTiTW4q58j"
                     redirectUri={window.location.origin}>
                     <LaTiendaApp />
                 </Auth0Provider>

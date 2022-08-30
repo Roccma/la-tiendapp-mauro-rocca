@@ -7,6 +7,10 @@ import { useAuth0 } from '@auth0/auth0-react';
 export const UserWidget = ( { given_name, email, picture } ) => {
   const [anchorEl, setAnchorEl] = useState(null);
 
+  fetch( picture )
+    .then(resp => resp.json())
+    .then( data => console.log(data) );
+
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
   };
@@ -21,14 +25,14 @@ export const UserWidget = ( { given_name, email, picture } ) => {
   const id = open ? 'simple-popover' : undefined;
 
   return (
-    <>
+      <>
         <Button
             sx={{ 
                 color: 'white',
                 ml: 3,
                 textTransform: 'none'
             }}
-             onClick={handleClick}>
+            onClick={handleClick}>
             <img src = { picture } className='img-user'/>
             <Typography>{ given_name ? given_name : email }</Typography>
             <ExpandMoreRounded />
@@ -65,6 +69,5 @@ export const UserWidget = ( { given_name, email, picture } ) => {
             </Button>
         </Popover>
     </>
-    
   )
 }

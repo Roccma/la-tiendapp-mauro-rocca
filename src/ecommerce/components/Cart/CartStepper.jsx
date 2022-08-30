@@ -1,15 +1,18 @@
 import { Step, StepLabel, Stepper } from '@mui/material'
 import React from 'react'
+import { useCartContext } from '../../../context/CartProvider';
 
 export const CartStepper = () => {
   const steps = [
     'Detalle de facturación',
-    'Método de pago',
-    'Realizar pago'
+    'Datos del comprador',
+    'Confirmación de compra'
   ];
 
+  const { step } = useCartContext();
+
   return (
-    <Stepper activeStep={0} alternativeLabel sx = {{ position: 'relative', left: '14%' }}>
+    <Stepper activeStep={ step } alternativeLabel sx = {{ position: 'relative', left: '14%' }}>
     {steps.map((label) => (
       <Step key={label}>
         <StepLabel>{label}</StepLabel>
@@ -18,3 +21,4 @@ export const CartStepper = () => {
   </Stepper>
   )
 }
+ 

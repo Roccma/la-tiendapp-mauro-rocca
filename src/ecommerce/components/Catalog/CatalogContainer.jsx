@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { Grid, Box, useEventCallback } from '@mui/material'
-import { getCategories, getFetchInCatalog, getPriceFilters, getPricesFilterById } from '../../../helpers';
+import { generalSettings, getCategories, getFetchInCatalog, getPriceFilters, getPricesFilterById } from '../../../helpers';
 import { CatalogFilters } from './CatalogFilters'
 import Notiflix from 'notiflix';
 import { CatalogList } from './CatalogList';
@@ -51,7 +51,7 @@ export const CatalogContainer = () => {
                                       ) 
                                     ));
         } )
-        .catch( error => Notiflix.Notify.failure( error.message ))
+        .catch( error => Notiflix.Notify.failure( error.message, generalSettings ))
         .finally(
           () => {
             Notiflix.Loading.remove();
@@ -87,7 +87,7 @@ export const CatalogContainer = () => {
         }
     )
     if( categoriesString === '' ){
-        Notiflix.Notify.failure('No has indicado categoría');
+        Notiflix.Notify.failure('No has indicado categoría', generalSettings);
     }
     else{
         navigate(`/category/${ categoriesString }/${ price }`);

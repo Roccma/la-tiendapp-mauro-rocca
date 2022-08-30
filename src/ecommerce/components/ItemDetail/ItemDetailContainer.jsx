@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import Notiflix from 'notiflix';
 import { useParams } from 'react-router-dom';
-import { getFetch } from '../../../helpers';
+import { generalSettings, getFetch } from '../../../helpers';
 import { ItemDetail } from './ItemDetail'
 import { getFirestore, doc, getDoc } from 'firebase/firestore';
 
@@ -24,7 +24,7 @@ export const ItemDetailContainer = () => {
           setProduct( { id: result.id, ...result.data() } )
         } )
         .catch( error => {
-          Notiflix.Notify.failure( error.message );
+          Notiflix.Notify.failure( error.message, generalSettings );
         })
         .finally(
           () => {

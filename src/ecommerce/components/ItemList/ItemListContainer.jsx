@@ -1,8 +1,9 @@
 import React, { useEffect, useState, memo } from 'react'
 import { ItemList } from './ItemList'
 import { Grid, Typography } from '@mui/material'
-import { collection, getDocs, getFirestore, query, where } from 'firebase/firestore';
-import Notiflix from 'notiflix';
+import { collection, getDocs, getFirestore, query, where } from 'firebase/firestore'
+import Notiflix from 'notiflix'
+import { generalSettings } from '../../../helpers'
 
 export const ItemListContainer = memo(( { title } ) => {
   const [ products, setProducts ] = useState([]);
@@ -23,7 +24,7 @@ export const ItemListContainer = memo(( { title } ) => {
                                       ) 
                                     ));
         } )
-        .catch( error => Notiflix.Notify.failure( error.message ))
+        .catch( error => Notiflix.Notify.failure( error.message, generalSettings ))
         .finally(
           () => {
             Notiflix.Loading.remove();

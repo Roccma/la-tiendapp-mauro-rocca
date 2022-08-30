@@ -12,6 +12,13 @@
     color: white;
 }
 
+.menu-icon-orange{
+    top: -2px;
+    margin-right: 5px;
+    position: relative;
+    color: #FF9900;
+}
+
 .img-carousel{
     height: 450px;
     object-fit:cover;
@@ -98,6 +105,12 @@ body,
     object-fit:cover;
 }
 
+.cart-img-summary{
+    width: 150px;
+    height: 125px;
+    object-fit:cover;
+}
+
 .cart-avatar-img{
     width: 30px;
     height: 30px;
@@ -114,4 +127,28 @@ body,
     font-size: 14px;
     margin-left: 10px;
     color: gray;
+}
+
+.pay-method-icon{
+    color: #FF9900;
+    font-size: 52px !important;
+    margin: auto !important;
+}
+
+.success-advice{
+    color: #27ae60;
+}
+
+.container-center{
+    width: 100%;
+    text-align: center;
+    height: auto;
+}
+
+.mt-15{
+    margin-top: 15px;
+}
+
+.item-quantity-step-2 {
+    color: grey
 }

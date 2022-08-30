@@ -4,25 +4,10 @@ import { CartContext } from "./CartContext"
 export const useCartContext = () => useContext( CartContext );
 
 export const CartProvider = ({ children }) => {
-  const [ step, setStep ] = useState(0);
-  const [ cartItems, setCartItems ] = useState([]);
+  const [ step, setStep ] = useState( localStorage.getItem( 'step' ) ? JSON.parse( localStorage.getItem( 'step' ) ) : 0 );
+  const [ cartItems, setCartItems ] = useState( localStorage.getItem( 'cartItems' ) ? JSON.parse( localStorage.getItem( 'cartItems' ) ) : [] );
   const [ lastUpdate, setLastUpdate ] = useState(Date());
-  const [ discount, setDiscount ] = useState(0);
-
-  const coupons = [
-    {
-      name: 'mauro15',
-      discount: 0.15
-    },
-    {
-      name: 'mauro50',
-      discount: 0.5
-    },
-    {
-      name: 'mauro100',
-      discount: 0
-    }
-  ]
+  const [ discount, setDiscount ] = useState( localStorage.getItem( 'discount' ) ? JSON.parse( localStorage.getItem( 'discount' ) ) : 0 );
   
   const addItem = ( item, quantity ) => {
 
@@ -48,6 +33,7 @@ export const CartProvider = ({ children }) => {
           }
         )
         setCartItems(cartItemsCopy);
+        localStorage.setItem( 'cartItems', JSON.stringify( cartItemsCopy ) );
         setLastUpdate( Date() );
       }
       else{
@@ -56,24 +42,30 @@ export const CartProvider = ({ children }) => {
     }
     else{
 
-      setCartItems([
+      const newCartItems = [
         ...cartItems,
         {
           item,
           quantity
         }
-      ]);
+      ];
+
+      setCartItems( newCartItems );
+      localStorage.setItem( 'cartItems', JSON.stringify( newCartItems ) );
       setLastUpdate( Date() );
     }
   }
 
   const removeItem = ( id ) => {
-    setCartItems( filterWithoutItem( id ) );
+    const filteredCartItems = filterWithoutItem( id );
+    setCartItems( filteredCartItems );
+    localStorage.setItem( 'cartItems', JSON.stringify( filteredCartItems ) );
     setLastUpdate( Date() );
   }
 
   const clear = () => {
     setCartItems([]);
+    localStorage.setItem( 'cartItems', JSON.stringify( [] ) );
     setLastUpdate( Date() );
   }
 
@@ -93,13 +85,29 @@ export const CartProvider = ({ children }) => {
     );
   }
 
+  const changeDiscount = ( discountValue ) => {
+    setDiscount( discountValue );
+    localStorage.setItem( 'discount', JSON.stringify( discountValue ) );
+    setLastUpdate( Date() );
+  }
+
+  const changeStep = ( newStep ) => {
+    setStep( newStep );
+    localStorage.setItem( 'step', JSON.stringify( newStep ) );
+    setLastUpdate( Date() );
+  }
+
   return (
     <CartContext.Provider value = {{ cartItems,
                                      lastUpdate,
+                                     discount,
+                                     step,
                                      addItem,
                                      removeItem,
                                      clear,
-                                     isInCart }}>
+                                     isInCart,
+                                     changeDiscount,
+                                     changeStep }}>
         { children }
     </CartContext.Provider>
   )

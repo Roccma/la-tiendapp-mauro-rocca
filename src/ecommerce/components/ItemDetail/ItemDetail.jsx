@@ -9,6 +9,7 @@ import { ItemCount } from './ItemCount';
 import { ItemContinueShop } from './ItemContinueShop';
 import { useCartContext } from '../../../context/CartProvider';
 import Notiflix from 'notiflix';
+import { generalSettings } from '../../../helpers';
 
 export const ItemDetail = ( { product } ) => {
 
@@ -27,7 +28,7 @@ export const ItemDetail = ( { product } ) => {
         setAddedToCart( true );
       }
       catch( error ){
-        Notiflix.Notify.failure( error );
+        Notiflix.Notify.failure( error, generalSettings );
       }
     }
   }
@@ -87,13 +88,6 @@ export const ItemDetail = ( { product } ) => {
                     initial = { quantity }
                     onAdd = { onAdd }/> 
               }
-              
-              {/* <Snackbar open={open} autoHideDuration={5000} onClose= { () => { setOpen( !open ) } }>
-                  <Alert onClose={ () => { setOpen( !open ) } } 
-                          severity="success" sx={{ width: '100%' }}>
-                      Has agregado { quantity } item{ quantity > 1 && 's' || '' } al carrito!
-                  </Alert>
-              </Snackbar>  */}
           </Grid>
       </Grid>
       <Grid

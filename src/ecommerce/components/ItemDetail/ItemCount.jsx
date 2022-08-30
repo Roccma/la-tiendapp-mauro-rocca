@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { AddShoppingCartRounded } from '@mui/icons-material'
 import { Alert, Button, Grid, Snackbar, Typography } from '@mui/material'
 import { useCartContext } from '../../../context/CartProvider';
+import { generalSettings } from '../../../helpers';
 
 export const ItemCount = ({ product, initial, onAdd, page = 'detail', children }) => {
 
@@ -20,7 +21,7 @@ export const ItemCount = ({ product, initial, onAdd, page = 'detail', children }
                 addItem( product, 1 );
             }
             catch( error ){
-                Notiflix.Notify.failure( error );
+                Notiflix.Notify.failure( error, generalSettings );
             }
         }
     }
@@ -33,7 +34,7 @@ export const ItemCount = ({ product, initial, onAdd, page = 'detail', children }
                 addItem( product, -1 );
             }
             catch( error ){
-                Notiflix.Notify.failure( error );
+                Notiflix.Notify.failure( error, generalSettings );
             }
         }
     }
