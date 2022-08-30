@@ -17,8 +17,6 @@ export const Navbar = () => {
 
   const { user, isAuthenticated } = useAuth0();
 
-  console.log(user);
-
   useEffect(() => {
     setItemsQuantity();
   }, [ lastUpdate ])
@@ -87,7 +85,7 @@ export const Navbar = () => {
             </IconButton>
             <Link to = '/'>
               <img 
-                src="/assets/la-tiendapp-logo-menu.png" 
+                src="https://i.ibb.co/Sd5Zfpz/la-tiendapp-logo-menu.png" 
                 alt="La TiendApp" 
                 className='img-logo'
               />

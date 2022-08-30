@@ -40,7 +40,7 @@ export const ItemDetail = ( { product } ) => {
       autoPlay : false
     };
   
-  if(!product) return <img src = '/assets/error404.png' className='img-not-found'/>;
+  if(!product) return <img src = 'https://i.ibb.co/3sY8DGL/error404.png' className='img-not-found'/>;
   
   if( product && product.images.length === 1 ) {
     carouselSettings = {
