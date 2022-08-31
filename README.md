@@ -65,7 +65,7 @@ Firebase (https://firebase.google.com/)<br>
 
 # Demo
 
-https://630eb25c84801b0009498d5a--animated-zuccutto-826e51.netlify.app/item/kKasr9F0yU2tsgs2sRmd
+https://630eb25c84801b0009498d5a--animated-zuccutto-826e51.netlify.app/
 
 # Contacto
 
