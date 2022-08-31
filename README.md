@@ -56,11 +56,16 @@ Si el resultado, es el número de la versión, la herramienta ya está instalada
 # Librerías utilizadas
 
 React (https://es.reactjs.org/)<br>
+react-router-dom (https://v5.reactrouter.com/web/guides/quick-start/)<br>
 Material UI (https://mui.com/)<br>
 Auth0 (https://auth0.com/)<br>
 react-responsive-carousel (https://www.npmjs.com/package/react-responsive-carousel)<br>
 Notiflix (https://notiflix.github.io/)<br>
+Firebase (https://firebase.google.com/)<br>
 
+# Demo
+
+https://630eb25c84801b0009498d5a--animated-zuccutto-826e51.netlify.app/item/kKasr9F0yU2tsgs2sRmd
 
 # Contacto
 
