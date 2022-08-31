@@ -17,7 +17,7 @@ export const CartContainer = () => {
   const [ subtotal, setSubtotal ] = useState(0);
   const [ discountPrice, setDiscountPrice ] = useState(0);
 
-  const { cartItems, lastUpdate, discount, step, changeStep, clear } = useCartContext();
+  const { cartItems, lastUpdate, discount, changeDiscount, step, changeStep, clear } = useCartContext();
 
   const [ items, setItems ] = useState( localStorage.getItem( 'items' ) ? JSON.parse( localStorage.getItem( 'items' ) ) : [] );
 
@@ -98,6 +98,7 @@ export const CartContainer = () => {
         localStorage.setItem( 'shopId', resp.id );
         localStorage.setItem( 'items', JSON.stringify( cartItems ) );
         clear();
+        changeDiscount(0);
         changeStep( step + 1 );
         Notiflix.Loading.remove();
       } );
