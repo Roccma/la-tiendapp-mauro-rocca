@@ -105,7 +105,8 @@ export const CartContainer = () => {
 
   useEffect(
     () => {
-      calculateTotal();
+      if( cartItems.length > 0 )
+        calculateTotal();
     },
     [ lastUpdate ]
   );
@@ -134,7 +135,6 @@ export const CartContainer = () => {
             }}>
             <Grid item sm = { 5 }>
               <Typography variant = 'h4'>Tu carrito</Typography>
-              { shopId && <Typography variant='bpdy1' sx = {{ color: 'gray' }}>ID: { shopId }</Typography> }
             </Grid>
             <Grid item sm = { 7 }>
               <CartStepper />
