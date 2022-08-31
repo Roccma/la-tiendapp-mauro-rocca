@@ -3,7 +3,7 @@ import { Button, Checkbox, FormControlLabel, Grid, TextField, Typography } from 
 import React, { useState } from 'react'
 
 export const CartClientForm = ( { handleGoBackStep, handleGoToPay } ) => {
-  
+
   const [ buyer, setBuyer ] = useState({
                                     name: '',
                                     lastname: '',
@@ -11,7 +11,7 @@ export const CartClientForm = ( { handleGoBackStep, handleGoToPay } ) => {
                                     email: '',
                                     confirmEmail: '',
                                     conditionsAccepted: false
-                                });
+                                }); 
     
   const handleChange = (event) => {
       setBuyer({
